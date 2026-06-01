@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: Apache-2.0
+---
+# Red Hat Enterprise Linux specific variables for IBM Db2 HADR
+
+# Required packages for IBM Db2 HADR with Integrated Linux Pacemaker
+__sap_ha_install_anydb_ibmdb2_packages:
+  - pacemaker
+  - pcs
+  - fence-agents-all
+  - resource-agents
+
+# IBM Db2 cluster connector package
+__sap_ha_install_anydb_ibmdb2_cluster_connector_package: sap-cluster-connector
+
+# Cluster commands - pcs commands for Red Hat OS family
+__sap_ha_install_anydb_ibmdb2_cluster_command:
+  resource_stop: "pcs resource disable"
+  resource_start: "pcs resource enable"
+  resource_restart: "pcs resource restart"
+  resource_cleanup: "pcs resource cleanup"
+  cluster_status: "pcs status"
+  cluster_config: "pcs config show"
+
+# Default cluster properties for Red Hat
+__sap_ha_install_anydb_ibmdb2_cluster_properties_default:
+  stonith-enabled: true
+  stonith-timeout: 150
+
+# IBM Db2 resource agent paths
+__sap_ha_install_anydb_ibmdb2_resource_agents:
+  db2ethmon: "ocf:heartbeat:db2ethmon"
+  db2inst: "ocf:heartbeat:db2inst"
+  db2hadr: "ocf:heartbeat:db2hadr"
+
+# Service management
+__sap_ha_install_anydb_ibmdb2_service_manager: systemd
+
+# Made with Bob

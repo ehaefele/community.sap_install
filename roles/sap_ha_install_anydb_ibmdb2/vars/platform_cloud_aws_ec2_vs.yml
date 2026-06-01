@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: Apache-2.0
+---
+# Variables specific to AWS platform, EC2 Virtual Servers for IBM Db2 HADR
+
+# Platform identifier
+__sap_ha_install_anydb_ibmdb2_platform: cloud_aws_ec2_vs
+
+# AWS-specific fence agent packages
+__sap_ha_install_anydb_ibmdb2_fence_agent_packages_platform:
+  - fence-agents-aws
+
+# AWS-specific VIP management method
+__sap_ha_install_anydb_ibmdb2_vip_method: aws_vpc_move_ip
+
+# AWS-specific health check configuration
+__sap_ha_install_anydb_ibmdb2_healthcheck_enabled: false
+
+# Made with Bob

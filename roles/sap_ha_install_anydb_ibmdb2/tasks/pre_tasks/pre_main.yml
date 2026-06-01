@@ -1,0 +1,17 @@
+# SPDX-License-Identifier: Apache-2.0
+---
+# Pre-tasks for IBM Db2 HADR setup
+
+- name: SAP HA AnyDB IBM Db2 - Include tasks for IBM Db2 HADR functionality
+  ansible.builtin.import_tasks:
+    file: pre_db2_hadr_enable.yml
+
+- name: SAP HA AnyDB IBM Db2 - Include tasks for Passwordless SSH
+  ansible.builtin.import_tasks:
+    file: pre_passwordless_ssh.yml
+
+- name: SAP HA AnyDB IBM Db2 - Include tasks for IBM Db2 HADR with 'Integrated Linux Pacemaker' cluster
+  ansible.builtin.import_tasks:
+    file: pre_db2_hadr_pcmk_cluster_create.yml
+
+# Made with Bob

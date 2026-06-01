@@ -1,29 +1,99 @@
 # SPDX-License-Identifier: Apache-2.0
 ---
+################################################################################
+# Role generic parameters
+################################################################################
 
-sap_ha_install_anydb_ibmdb2_sid:
+# Do NOT USE ANSIBLE FACTS for defaults to be compatible with
+# playbooks that disable generic fact gathering!
 
-sap_ha_install_anydb_ibmdb2_hostname_primary:
-sap_ha_install_anydb_ibmdb2_hostname_secondary:
+################################################################################
+# SAP HA AnyDB IBM Db2 HADR - Required Parameters
+################################################################################
 
-sap_ha_install_anydb_ibmdb2_software_directory:
+# SAP System ID for the IBM Db2 database instance
+sap_ha_install_anydb_ibmdb2_sid: ''
 
+# Hostname of the primary IBM Db2 node (HADR primary)
+sap_ha_install_anydb_ibmdb2_hostname_primary: ''
 
-sap_ha_install_anydb_ibmdb2_vip_primary_ip_address:
+# Hostname of the secondary IBM Db2 node (HADR standby)
+sap_ha_install_anydb_ibmdb2_hostname_secondary: ''
 
-sap_ha_install_anydb_ibmdb2_aws_access_key_id:
-sap_ha_install_anydb_ibmdb2_aws_secret_access_key:
-sap_ha_install_anydb_ibmdb2_aws_vip_update_rt:
+# Directory path where IBM Db2 installation media is located
+# Must contain the db2installPCMK script
+sap_ha_install_anydb_ibmdb2_software_directory: ''
 
-sap_ha_install_anydb_ibmdb2_msazure_tenant_id:
-sap_ha_install_anydb_ibmdb2_msazure_app_client_id:
-sap_ha_install_anydb_ibmdb2_msazure_app_client_secret:
+# Virtual IP address for the IBM Db2 primary instance
+# This VIP will be managed by the cluster
+sap_ha_install_anydb_ibmdb2_vip_primary_ip_address: ''
+
+################################################################################
+# Platform-specific parameters - AWS EC2
+################################################################################
+
+# AWS Access Key ID for API authentication
+# Required when deploying on AWS EC2
+sap_ha_install_anydb_ibmdb2_aws_access_key_id: ''
+
+# AWS Secret Access Key for API authentication
+# Required when deploying on AWS EC2
+sap_ha_install_anydb_ibmdb2_aws_secret_access_key: ''
+
+# List of AWS route table IDs to update for VIP routing
+# Required when deploying on AWS EC2
+sap_ha_install_anydb_ibmdb2_aws_vip_update_rt: []
+
+################################################################################
+# Platform-specific parameters - Microsoft Azure
+################################################################################
+
+# Azure Tenant ID for authentication
+# Required when deploying on Microsoft Azure
+sap_ha_install_anydb_ibmdb2_msazure_tenant_id: ''
+
+# Azure Application (Client) ID for authentication
+# Required when deploying on Microsoft Azure
+sap_ha_install_anydb_ibmdb2_msazure_app_client_id: ''
+
+# Azure Application Client Secret for authentication
+# Required when deploying on Microsoft Azure
+sap_ha_install_anydb_ibmdb2_msazure_app_client_secret: ''
+
+# Port number for Azure Load Balancer health check
+# Used when deploying on Microsoft Azure
 sap_ha_install_anydb_ibmdb2_msazure_lb_health_check_port: 62700
 
-sap_ha_install_anydb_ibmdb2_gcp_credentials_json_file:
-sap_ha_install_anydb_ibmdb2_gcp_project:
+################################################################################
+# Platform-specific parameters - Google Cloud Platform
+################################################################################
+
+# Path to the Google Cloud service account JSON credentials file
+# Required when deploying on Google Cloud Platform
+sap_ha_install_anydb_ibmdb2_gcp_credentials_json_file: ''
+
+# Google Cloud Project ID
+# Required when deploying on Google Cloud Platform
+sap_ha_install_anydb_ibmdb2_gcp_project: ''
+
+# Port number for Google Cloud Load Balancer health check
+# Used when deploying on Google Cloud Platform
 sap_ha_install_anydb_ibmdb2_gcp_lb_health_check_port: 62700
 
-sap_ha_install_anydb_ibmdb2_ibmcloud_api_key:
-sap_ha_install_anydb_ibmdb2_ibmcloud_region:
+################################################################################
+# Platform-specific parameters - IBM Cloud
+################################################################################
+
+# IBM Cloud API Key for authentication
+# Required when deploying on IBM Cloud
+sap_ha_install_anydb_ibmdb2_ibmcloud_api_key: ''
+
+# IBM Cloud region where resources are deployed
+# Required when deploying on IBM Cloud
+sap_ha_install_anydb_ibmdb2_ibmcloud_region: ''
+
+# Port number for IBM Cloud Load Balancer health check
+# Used when deploying on IBM Cloud
 sap_ha_install_anydb_ibmdb2_ibmcloud_health_check_port: 62700
+
+# Made with Bob

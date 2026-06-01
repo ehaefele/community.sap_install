@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: Apache-2.0
+---
+# Variables specific to Google Cloud Platform, Compute Engine Virtual Machines for IBM Db2 HADR
+
+# Platform identifier
+__sap_ha_install_anydb_ibmdb2_platform: cloud_gcp_ce_vm
+
+# GCP-specific fence agent packages
+__sap_ha_install_anydb_ibmdb2_fence_agent_packages_platform:
+  - fence-agents-gce
+
+# GCP-specific VIP management method
+__sap_ha_install_anydb_ibmdb2_vip_method: gcp_vpc_move_route
+
+# GCP-specific health check configuration
+__sap_ha_install_anydb_ibmdb2_healthcheck_enabled: true
+
+# Made with Bob

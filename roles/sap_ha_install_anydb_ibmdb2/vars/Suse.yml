@@ -1,0 +1,38 @@
+# SPDX-License-Identifier: Apache-2.0
+---
+# SUSE Linux Enterprise Server specific variables for IBM Db2 HADR
+
+# Required packages for IBM Db2 HADR with Integrated Linux Pacemaker
+__sap_ha_install_anydb_ibmdb2_packages:
+  - pacemaker
+  - crmsh
+  - fence-agents
+  - resource-agents
+
+# IBM Db2 cluster connector package
+__sap_ha_install_anydb_ibmdb2_cluster_connector_package: sap-suse-cluster-connector
+
+# Cluster commands - crmsh commands for SUSE OS family
+__sap_ha_install_anydb_ibmdb2_cluster_command:
+  resource_stop: "crm resource stop"
+  resource_start: "crm resource start"
+  resource_restart: "crm --force resource restart"
+  resource_cleanup: "crm resource cleanup"
+  cluster_status: "crm status"
+  cluster_config: "crm configure show"
+
+# Default cluster properties for SUSE
+__sap_ha_install_anydb_ibmdb2_cluster_properties_default:
+  stonith-enabled: true
+  stonith-timeout: 150
+
+# IBM Db2 resource agent paths
+__sap_ha_install_anydb_ibmdb2_resource_agents:
+  db2ethmon: "ocf:heartbeat:db2ethmon"
+  db2inst: "ocf:heartbeat:db2inst"
+  db2hadr: "ocf:heartbeat:db2hadr"
+
+# Service management
+__sap_ha_install_anydb_ibmdb2_service_manager: systemd
+
+# Made with Bob

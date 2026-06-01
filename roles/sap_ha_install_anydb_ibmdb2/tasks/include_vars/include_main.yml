@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: Apache-2.0
+---
+# Main variable inclusion and detection tasks
+
+- name: SAP HA AnyDB IBM Db2 - Include OS family specific variables
+  ansible.builtin.include_vars:
+    file: "{{ ansible_facts['os_family'] }}.yml"
+
+- name: SAP HA AnyDB IBM Db2 - Detect platform type
+  ansible.builtin.import_tasks:
+    file: detect_platform_type.yml
+
+- name: SAP HA AnyDB IBM Db2 - Include platform specific variables
+  ansible.builtin.include_vars:
+    file: "platform_{{ __sap_ha_install_anydb_ibmdb2_platform }}.yml"
+  when: __sap_ha_install_anydb_ibmdb2_platform | length > 0
+
+# Made with Bob

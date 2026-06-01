@@ -1,0 +1,18 @@
+# SPDX-License-Identifier: Apache-2.0
+---
+# Variables specific to IBM Cloud platform, Virtual Servers (x86_64) for IBM Db2 HADR
+
+# Platform identifier
+__sap_ha_install_anydb_ibmdb2_platform: cloud_ibmcloud_vs
+
+# IBM Cloud-specific fence agent packages
+__sap_ha_install_anydb_ibmdb2_fence_agent_packages_platform:
+  - fence-agents-ibm-vpc
+
+# IBM Cloud-specific VIP management method
+__sap_ha_install_anydb_ibmdb2_vip_method: ibmcloud_vpc_move_ip
+
+# IBM Cloud-specific health check configuration
+__sap_ha_install_anydb_ibmdb2_healthcheck_enabled: true
+
+# Made with Bob

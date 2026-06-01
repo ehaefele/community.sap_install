@@ -1,0 +1,172 @@
+# SPDX-License-Identifier: Apache-2.0
+---
+# Requires: ansible 2.11
+# Argument specifications in this separate file maintain backwards compatibility.
+argument_specs:
+
+  main:
+    short_description: SAP HA AnyDB IBM Db2 HADR automated setup requirements
+    description: |
+      Minimum required parameters:
+      - [sap_ha_install_anydb_ibmdb2_sid](#sap_ha_install_anydb_ibmdb2_sid)
+      - [sap_ha_install_anydb_ibmdb2_hostname_primary](#sap_ha_install_anydb_ibmdb2_hostname_primary)
+      - [sap_ha_install_anydb_ibmdb2_hostname_secondary](#sap_ha_install_anydb_ibmdb2_hostname_secondary)
+      - [sap_ha_install_anydb_ibmdb2_software_directory](#sap_ha_install_anydb_ibmdb2_software_directory)
+      - [sap_ha_install_anydb_ibmdb2_vip_primary_ip_address](#sap_ha_install_anydb_ibmdb2_vip_primary_ip_address)
+
+      Additional requirements depend on the target platform (AWS, Azure, GCP, IBM Cloud).
+    options:
+
+      #########################################################################
+      # SAP HA AnyDB IBM Db2 role generic parameters
+      #########################################################################
+      sap_ha_install_anydb_ibmdb2_sid:
+        required: true
+        type: str
+        description:
+          - SAP System ID (SID) for the IBM Db2 database instance.
+          - Must be exactly 3 characters, uppercase alphanumeric.
+        example: DB1
+
+      sap_ha_install_anydb_ibmdb2_hostname_primary:
+        required: true
+        type: str
+        description:
+          - Hostname of the primary IBM Db2 node.
+          - This node will be configured as the HADR primary.
+        example: db2node1
+
+      sap_ha_install_anydb_ibmdb2_hostname_secondary:
+        required: true
+        type: str
+        description:
+          - Hostname of the secondary IBM Db2 node.
+          - This node will be configured as the HADR standby.
+        example: db2node2
+
+      sap_ha_install_anydb_ibmdb2_software_directory:
+        required: true
+        type: str
+        description:
+          - Directory path where IBM Db2 installation media is located.
+          - Must contain the db2installPCMK script.
+        example: /software/db2
+
+      sap_ha_install_anydb_ibmdb2_vip_primary_ip_address:
+        required: true
+        type: str
+        description:
+          - Virtual IP address for the IBM Db2 primary instance.
+          - This VIP will be managed by the cluster.
+        example: 192.168.1.100
+
+      #########################################################################
+      # AWS EC2 specific parameters
+      #########################################################################
+      sap_ha_install_anydb_ibmdb2_aws_access_key_id:
+        type: str
+        description:
+          - AWS Access Key ID for API authentication.
+          - Required when deploying on AWS EC2.
+        example: AKIAIOSFODNN7EXAMPLE
+
+      sap_ha_install_anydb_ibmdb2_aws_secret_access_key:
+        type: str
+        description:
+          - AWS Secret Access Key for API authentication.
+          - Required when deploying on AWS EC2.
+        example: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+
+      sap_ha_install_anydb_ibmdb2_aws_vip_update_rt:
+        type: list
+        elements: str
+        description:
+          - List of AWS route table IDs to update for VIP routing.
+          - Required when deploying on AWS EC2.
+        example:
+          - rtb-12345678
+          - rtb-87654321
+
+      #########################################################################
+      # Microsoft Azure specific parameters
+      #########################################################################
+      sap_ha_install_anydb_ibmdb2_msazure_tenant_id:
+        type: str
+        description:
+          - Azure Tenant ID for authentication.
+          - Required when deploying on Microsoft Azure.
+        example: 12345678-1234-1234-1234-123456789012
+
+      sap_ha_install_anydb_ibmdb2_msazure_app_client_id:
+        type: str
+        description:
+          - Azure Application (Client) ID for authentication.
+          - Required when deploying on Microsoft Azure.
+        example: 87654321-4321-4321-4321-210987654321
+
+      sap_ha_install_anydb_ibmdb2_msazure_app_client_secret:
+        type: str
+        description:
+          - Azure Application Client Secret for authentication.
+          - Required when deploying on Microsoft Azure.
+        example: your-client-secret-here
+
+      sap_ha_install_anydb_ibmdb2_msazure_lb_health_check_port:
+        type: int
+        default: 62700
+        description:
+          - Port number for Azure Load Balancer health check.
+          - Used when deploying on Microsoft Azure.
+        example: 62700
+
+      #########################################################################
+      # Google Cloud Platform specific parameters
+      #########################################################################
+      sap_ha_install_anydb_ibmdb2_gcp_credentials_json_file:
+        type: str
+        description:
+          - Path to the Google Cloud service account JSON credentials file.
+          - Required when deploying on Google Cloud Platform.
+        example: /path/to/gcp-credentials.json
+
+      sap_ha_install_anydb_ibmdb2_gcp_project:
+        type: str
+        description:
+          - Google Cloud Project ID.
+          - Required when deploying on Google Cloud Platform.
+        example: my-gcp-project-id
+
+      sap_ha_install_anydb_ibmdb2_gcp_lb_health_check_port:
+        type: int
+        default: 62700
+        description:
+          - Port number for Google Cloud Load Balancer health check.
+          - Used when deploying on Google Cloud Platform.
+        example: 62700
+
+      #########################################################################
+      # IBM Cloud specific parameters
+      #########################################################################
+      sap_ha_install_anydb_ibmdb2_ibmcloud_api_key:
+        type: str
+        description:
+          - IBM Cloud API Key for authentication.
+          - Required when deploying on IBM Cloud.
+        example: your-ibmcloud-api-key-here
+
+      sap_ha_install_anydb_ibmdb2_ibmcloud_region:
+        type: str
+        description:
+          - IBM Cloud region where resources are deployed.
+          - Required when deploying on IBM Cloud.
+        example: us-south
+
+      sap_ha_install_anydb_ibmdb2_ibmcloud_health_check_port:
+        type: int
+        default: 62700
+        description:
+          - Port number for IBM Cloud Load Balancer health check.
+          - Used when deploying on IBM Cloud.
+        example: 62700
+
+# Made with Bob
