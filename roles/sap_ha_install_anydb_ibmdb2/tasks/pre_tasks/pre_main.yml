@@ -14,4 +14,4 @@
   ansible.builtin.import_tasks:
     file: pre_db2_hadr_pcmk_cluster_create.yml
 
-# Made with Bob
+

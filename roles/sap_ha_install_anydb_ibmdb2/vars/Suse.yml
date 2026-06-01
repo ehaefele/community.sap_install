@@ -35,4 +35,4 @@ __sap_ha_install_anydb_ibmdb2_resource_agents:
 # Service management
 __sap_ha_install_anydb_ibmdb2_service_manager: systemd
 
-# Made with Bob
+

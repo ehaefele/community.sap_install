@@ -15,4 +15,4 @@ __sap_ha_install_anydb_ibmdb2_vip_method: gcp_vpc_move_route
 # GCP-specific health check configuration
 __sap_ha_install_anydb_ibmdb2_healthcheck_enabled: true
 
-# Made with Bob
+

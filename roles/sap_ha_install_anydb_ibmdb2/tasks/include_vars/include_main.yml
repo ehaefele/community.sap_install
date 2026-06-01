@@ -14,5 +14,3 @@
   ansible.builtin.include_vars:
     file: "platform_{{ __sap_ha_install_anydb_ibmdb2_platform }}.yml"
   when: __sap_ha_install_anydb_ibmdb2_platform | length > 0
-
-# Made with Bob

@@ -49,4 +49,4 @@ __sap_ha_install_anydb_ibmdb2_platform_detection:
   cloud_msazure_vm:
     - 'Microsoft Corporation'
 
-# Made with Bob
+

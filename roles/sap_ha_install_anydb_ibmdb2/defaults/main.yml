@@ -95,5 +95,3 @@ sap_ha_install_anydb_ibmdb2_ibmcloud_region: ''
 # Port number for IBM Cloud Load Balancer health check
 # Used when deploying on IBM Cloud
 sap_ha_install_anydb_ibmdb2_ibmcloud_health_check_port: 62700
-
-# Made with Bob

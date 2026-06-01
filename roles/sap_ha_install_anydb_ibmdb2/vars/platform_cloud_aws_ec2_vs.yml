@@ -15,4 +15,4 @@ __sap_ha_install_anydb_ibmdb2_vip_method: aws_vpc_move_ip
 # AWS-specific health check configuration
 __sap_ha_install_anydb_ibmdb2_healthcheck_enabled: false
 
-# Made with Bob
+
